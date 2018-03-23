@@ -16,6 +16,10 @@ public:
     Block(uint32_t index, const string &data);
     string prevHash;
     string GetHash();
+    /**
+     * Demo for POW
+     * @param difficulty
+     */
     void MineBlock(uint32_t difficulty);
 
 private:

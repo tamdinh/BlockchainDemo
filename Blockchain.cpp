@@ -6,7 +6,7 @@
 
 Blockchain::Blockchain() {
     chain.emplace_back(Block(0,"Gennesis Block"));
-    difficulty = 4;
+    difficulty = 3;
 }
 
 void Blockchain::AddBlock(Block newBlock) {
