@@ -4,20 +4,21 @@ message(STATUS "start running cmake...")
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(OPENSSL_ROOT_DIR /usr/local/opt/openssl)
-#set(OPENSSL_LIBRARIES /usr/local/opt/openssl/lib)
-#set(OPENSSL_INCLUDE_DIRS /usr/local/opt/openssl/include/openssl)
+#set(OPENSSL_ROOT_DIR /usr/local/opt/openssl)
 
 # add extra include directories
-#include_directories(/usr/local/include)
+include_directories(/net /utilities)
 
-set(SOURCE_FILES main.cpp Block.cpp Block.h Blockchain.cpp Blockchain.h Hash.h utilities/json.hh)
-find_package(openssl 2.2.7 COMPONENTS system filesystem REQUIRED)
+set(SOURCE_FILES main.cpp Block.cpp Block.h Blockchain.cpp Blockchain.h Hash.h
+        net/client_http.h net/server_http.h net/status_code.h
+        utilities/json.hh utilities/utility.h)
+
+find_package(openssl COMPONENTS system filesystem REQUIRED)
 if (OPENSSL_FOUND)
-    message(STATUS "openssl_INCLUDE_DIRS: ${openssl_INCLUDE_DIRS}")
-    message(STATUS "openssl_LIBRARIES: ${openssl_LIBRARIES}")
-    message(STATUS "openssl_VERSION: ${openssl_VERSION}")
-    message(STATUS "found openssl, include them ...")
+    message(STATUS "OPENSSL_INCLUDE_DIR: ${OPENSSL_INCLUDE_DIR}")
+    message(STATUS "OPENSSL_LIBRARIES: ${OPENSSL_LIBRARIES}")
+    message(STATUS "OPENSSL_VERSION: ${OPENSSL_VERSION}")
+
     include_directories(${OPENSSL_INCLUDE_DIR})
 endif()
 
