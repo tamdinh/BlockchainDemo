@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.9)
-project(MyProject)
+project(SimpleBlockchain)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES main.cpp)
 add_executable(${CMAKE_PROJECT_NAME}_run ${SOURCE_FILES})
@@ -27,7 +27,7 @@ if(DOXYGEN_FOUND)
     set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
     configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
 
-    message("Doxygen buld started")
+    message("Doxygen build started")
     add_custom_target(Doxygen ALL
             COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
             WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}

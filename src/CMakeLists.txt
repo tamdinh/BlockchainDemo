@@ -1,9 +1,10 @@
 project(${CMAKE_PROJECT_NAME}_lib)
 
 set(HEADER_FILES
+        Block.h
 )
 set(SOURCE_FILES
-)
+        Block.cpp )
 
 if (EXISTS ${SOURCE_FILES})
     # The library contains header and source files.
