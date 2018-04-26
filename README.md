@@ -1,1 +1,1 @@
-This Project
+This Project initially generated from Timothy Helton's template.

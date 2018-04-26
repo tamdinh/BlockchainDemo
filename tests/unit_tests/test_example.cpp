@@ -1,3 +1,4 @@
+#include <Block.h>
 #include "gtest/gtest.h"
 
 int Factorial(int n){
@@ -23,3 +24,19 @@ TEST(FactorialTest, HandlesPositiveInput) {
     EXPECT_EQ(6, Factorial(3));
     EXPECT_EQ(40320, Factorial(8));
 }
+
+//class BlockTest : public ::testing::Test {
+//    Block* block;
+//protected:
+//    virtual void TearDown() {
+//        delete block;
+//    }
+//
+//    virtual void SetUp() {
+//       block = new Block(0,"Block 0");
+//    }
+//};
+//
+//TEST_F(BlockTest, TestBlockContructor) {
+//
+//}

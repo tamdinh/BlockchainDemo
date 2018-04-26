@@ -6,8 +6,39 @@
 #define SIMPLEBLOCKCHAIN_BLOCK_H
 
 
+#include <cstdint>
+#include <iostream>
+
+using namespace std;
+
 class Block {
 
+    public:
+    /// Contructors
+    Block(uint32_t index, const string &data);
+
+    string prevHash;
+
+    /**
+     *     Get current Hash of this block
+     */
+    string GetHash();
+
+    /**
+     * Use POW for mining here.
+     * @param difficulty
+     */
+    void MineBlock(uint32_t difficulty);
+
+private :
+        uint32_t _index;
+        int16_t  _nonce;
+        string _blockdata;
+        string _hash;
+        time_t _timeStamp;
+
+        // methods
+        string CalculateHash() const;
 };
 
 
