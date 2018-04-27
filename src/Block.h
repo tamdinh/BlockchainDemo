@@ -25,6 +25,12 @@ class Block {
     string GetHash();
 
     /**
+     * Get Block's Height in blockchain
+     * @return
+     */
+    uint32_t GetHeight();
+
+    /**
      * Use POW for mining here.
      * @param difficulty
      */
@@ -33,7 +39,7 @@ class Block {
 private :
         uint32_t _index;
         int16_t  _nonce;
-        string _blockdata;
+        string _blockData;
         string _hash;
         time_t _timeStamp;
 

@@ -1,42 +1,26 @@
 #include <Block.h>
 #include "gtest/gtest.h"
 
-int Factorial(int n){
-    if ( n == 0 )
-        return 1;
-    else
-        return n*(n-1);
-}
+class BlockTest : public ::testing::Test {
+public :
+    Block* block;
+protected:
+    virtual void TearDown() {
+        delete block;
+    }
 
-TEST(Example, Equals) {
-  EXPECT_EQ(1, 1);
-}
+    virtual void SetUp() {
+       block = new Block(0,"Block 0");
+    }
+};
 
-// Tests factorial of 0.
-TEST(FactorialTest, HandlesZeroInput) {
-    EXPECT_EQ(1, Factorial(0));
+TEST_F(BlockTest, TestBlockContructor) {
+    Block *b = block;
+    EXPECT_EQ(0,b->GetHeight());
 }
-
-// Tests factorial of positive numbers.
-TEST(FactorialTest, HandlesPositiveInput) {
-    EXPECT_EQ(1, Factorial(1));
-    EXPECT_EQ(2, Factorial(2));
-    EXPECT_EQ(6, Factorial(3));
-    EXPECT_EQ(40320, Factorial(8));
+TEST_F(BlockTest, TestBlockContructor2) {
+    Block *b = block;
+    const char* expectVal = "hello";
+    const char* actualVal = b->GetHash().c_str();
+    EXPECT_STREQ(expectVal,actualVal);
 }
-
-//class BlockTest : public ::testing::Test {
-//    Block* block;
-//protected:
-//    virtual void TearDown() {
-//        delete block;
-//    }
-//
-//    virtual void SetUp() {
-//       block = new Block(0,"Block 0");
-//    }
-//};
-//
-//TEST_F(BlockTest, TestBlockContructor) {
-//
-//}

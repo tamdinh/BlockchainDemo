@@ -30,4 +30,11 @@ string sha256(const string str) {
     return ss.str();
 }
 
+void bbp_sha256(uint8_t *digest, const uint8_t *message, size_t len) {
+    SHA256_CTX ctx;
+    SHA256_Init(&ctx);
+    SHA256_Update(&ctx, message, len);
+    SHA256_Final(digest, &ctx);
+}
+
 #endif //SIMPLEBLOCKCHAIN_HASH_H
